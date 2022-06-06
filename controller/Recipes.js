@@ -38,7 +38,6 @@ exports.getRecipe = async (req, res, next) => {
 };
 exports.addRecipe = async (req, res, next) => {
   const { photo, title, author, ingredients, note } = req.body;
-  console.log(req.body);
   if (!photo || !title || !author || !ingredients.length || !note) {
     return res.send({
       message: 'Insuffient data',

@@ -100,7 +100,6 @@ exports.Signup = async (req, res, next) => {
 
 exports.fetchUser = async (req, res, next) => {
   const { id } = req.body;
-  console.log(req.body);
   if (!id) {
     return res.status(500).send({
       message: 'Insuffient data',
@@ -109,7 +108,6 @@ exports.fetchUser = async (req, res, next) => {
   try {
     const data = await User.findById(id).populate('recipes').select('recipes');
 
-    console.log(data);
     return res.status(200).send({
       message: 'Recipes fetch succesfully',
       recipe: data,

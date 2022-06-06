@@ -18,7 +18,6 @@ const Form = ({ close }) => {
     const temp = document.getElementById('temp');
     const newtemp = temp.cloneNode(true);
 
-    console.log(temp, newtemp);
     newtemp.setAttribute('id', '');
     newtemp.lastChild.setAttribute('id', count + 1);
 
@@ -41,7 +40,6 @@ const Form = ({ close }) => {
       note: note,
       author: localStorage.getItem('id'),
     };
-    console.log(data);
     dispatch(addRecipe(data, close));
   };
   return (

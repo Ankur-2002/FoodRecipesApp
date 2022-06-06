@@ -13,14 +13,11 @@ const Dashboard = () => {
 
   return (
     <Container>
-      <Topbar />
+      <Topbar>Welcome To All Recipes</Topbar>
       <Wrapper>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
+        {state?.recipe?.recipes?.map(item => {
+          return <Card data={item} />;
+        })}
       </Wrapper>
     </Container>
   );

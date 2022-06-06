@@ -7,7 +7,6 @@ const initial_state = {
 };
 
 export const UserReducers = (state = initial_state, action) => {
-  console.log(action, 'Cure');
   switch (action.type) {
     case 'LOGIN':
       return {
@@ -34,6 +33,14 @@ export const UserReducers = (state = initial_state, action) => {
       return {
         ...state,
         recipies: action.payload,
+      };
+    case 'LOGOUT':
+      return {
+        name: undefined,
+        email: undefined,
+        recipies: [],
+        token: undefined,
+        id: undefined,
       };
     default:
       return state;

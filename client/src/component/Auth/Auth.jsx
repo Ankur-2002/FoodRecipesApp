@@ -11,9 +11,7 @@ const Login = ({ close }) => {
   const [signup, setSignUp] = useState(false);
   const state = useSelector(state => state.auth);
   const dispatch = useDispatch();
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
+
   const sumbitHandler = () => {
     dispatch(
       signup

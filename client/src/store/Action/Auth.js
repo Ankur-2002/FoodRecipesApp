@@ -3,7 +3,6 @@ import axios from '../../utils/axios';
 export const LoginAction = (user, callback) => async dispatch => {
   try {
     const auth = await axios.post('/auth/login', user);
-    console.log(auth);
     if (auth.status !== 200) {
       alert(auth.message);
       return;
@@ -40,4 +39,12 @@ export const SignupAction = (user, callback) => async dispatch => {
   } catch (error) {
     alert(error.message);
   }
+};
+
+export const logoutAction = callback => async dispatch => {
+  localStorage.clear();
+  dispatch({
+    type: 'LOGOUT',
+  });
+  callback();
 };

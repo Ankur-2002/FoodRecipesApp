@@ -6,9 +6,7 @@ import Form from './Form';
 
 const Account = () => {
   const state = useSelector(state => state.user);
-  useEffect(() => {
-    console.log(state, 'actoins');
-  }, [state]);
+  useEffect(() => {}, [state]);
   const [form, setForm] = useState(false);
   return (
     <Container>

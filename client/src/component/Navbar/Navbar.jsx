@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../common/Button.jsx';
 import Login from '../Auth/Auth.jsx';
 import { Container, Left, Right, Mid } from './Navbar.style.js';
 import SearchIcon from '../../assets/searchIcon.svg';
 import { Link, useNavigate } from 'react-router-dom';
+import { logoutAction } from '../../store/Action/Auth.js';
 const Navbar = () => {
   const [login, setLogin] = useState(false);
   const state = useSelector(state => state.user);
+  const dispatch = useDispatch();
   const navigation = useNavigate();
   const [location, setLocation] = useState(false);
-
+  const [current, setCurrent] = useState(state);
   useEffect(() => {
-    if (!state.token) {
+    if (!current.token) {
       navigation('/');
     }
-  }, [state]);
+    console.log(state);
+  }, [current]);
+
+  const logoutHandler = () => {
+    dispatch(logoutAction(() => navigation('/')));
+  };
 
   return (
     <>
@@ -61,7 +68,7 @@ const Navbar = () => {
                   </Link>
                 </div>
 
-                <div>Logout</div>
+                <div onClick={logoutHandler}>Logout</div>
               </div>
             </div>
           )}
