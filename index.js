@@ -8,6 +8,7 @@ const app = express();
 
 // app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('client/build'));
 app.use(
   cors({
     origin: '*',
