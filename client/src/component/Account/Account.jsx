@@ -6,7 +6,9 @@ import Form from './Form';
 
 const Account = () => {
   const state = useSelector(state => state.user);
-  useEffect(() => {}, [state]);
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
   const [form, setForm] = useState(false);
   return (
     <Container>
@@ -23,7 +25,11 @@ const Account = () => {
           Create Recipes
         </span>
       </Profile>
-      <Wrapper>{}</Wrapper>
+      <Wrapper>
+        {state?.recipies?.map(item => {
+          return <Card data={item} key={item._id} />;
+        })}
+      </Wrapper>
     </Container>
   );
 };

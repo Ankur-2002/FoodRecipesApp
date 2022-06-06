@@ -32,7 +32,7 @@ const Recipe = () => {
         {data?.ingredients?.map((item, index) => {
           return (
             <Tile>
-              <span className="step">step {index}</span> <span>{item}</span>
+              <span className="step">step{index}</span> <span>{item}</span>
             </Tile>
           );
         })}

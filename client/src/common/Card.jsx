@@ -9,7 +9,10 @@ const Card = ({ data }) => {
         <img src={data.photo} alt="" width={'100%'} />
       </Top>
       <Bottom>
-        <span>{data.title}</span>
+        <span className="title">
+          {data?.title?.substring(0, 20) +
+            (data?.title?.length > 20 ? '...' : '')}
+        </span>
         <span className="view">
           <Link to={'/recipe/' + data?._id}>view more</Link>
         </span>
@@ -47,11 +50,17 @@ const Bottom = styled.div`
   font-size: 20px;
   font-weight: 600;
 
+  .title {
+    // white-space: nowrap;
+    overflow: hidden;
+    padding: 0 1rem;
+    text-overflow: ellipsis;
+  }
+
   .view {
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
-
     & a {
       text-decoration: none;
       color: blue;

@@ -22,12 +22,14 @@ export const Ingredients = styled.div`
 export const Tile = styled.div`
   font-family: 'Roboto' sans-serif;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
   width: 400px;
   margin-top: 20px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   .step {
-    margin-right: 30px;
+    font-weight: 600;
   }
 `;
 export const Note = styled.div`
