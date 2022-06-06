@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const { Auth } = require('./routes/Auth');
 const { Recipe } = require('./routes/Recipe');
@@ -8,6 +9,11 @@ const app = express();
 
 // app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 
 mongoose.connect(
   process.env.MONGOURI ||

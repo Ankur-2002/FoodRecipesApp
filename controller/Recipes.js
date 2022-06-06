@@ -21,7 +21,7 @@ exports.getRecipe = async (req, res, next) => {
     });
   }
   try {
-    const recipe = Recipe.findById(id);
+    const recipe = await Recipe.findById(id);
     if (!recipe) {
       return res.status(200).send({
         message: 'Recipe does not exist',

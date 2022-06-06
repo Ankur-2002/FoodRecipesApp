@@ -11,7 +11,7 @@ const Card = ({ data }) => {
       <Bottom>
         <span>{data.title}</span>
         <span className="view">
-          <Link to={'/'}>view more</Link>
+          <Link to={'/recipe/' + data?._id}>view more</Link>
         </span>
       </Bottom>
     </Container>

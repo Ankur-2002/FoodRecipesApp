@@ -34,3 +34,10 @@ export const fetchUserRecipe = user => async dispatch => {
     });
   } catch (error) {}
 };
+
+export const fetchRecipe = async id => {
+  try {
+    const data = await axios.get('/recipe/get/' + id);
+    return data.data;
+  } catch (error) {}
+};
